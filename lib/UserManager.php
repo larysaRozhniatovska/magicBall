@@ -119,17 +119,23 @@ class UserManager {
     /**
      * returns user information by login
      * @param string $login
-     * @return array | null
+     * @return array
      */
-    public function infoUser(string $login): array | null
+    public function infoUser(string $login): array
     {
+        if ($login === "")
+            return [];
         $result = array_filter(
             $this->users,
             function ($user) use ($login) {
                 return $user["login"] === $login;
             },
         );
-        array_shift($result);
-        return $result;
+        $result = reset($result);
+        if ($result["login"] === $login) {
+            return $result;
+        }else {
+            return [];
+        }
     }
 };
