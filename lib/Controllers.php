@@ -8,7 +8,7 @@ class Controllers
     }
     /**
      * returns the created instance of the class
-     * @return MagicBallManager
+     * @return Controllers
      */
     public static function getInstance() : Controllers
     {
@@ -19,7 +19,8 @@ class Controllers
     }
     public function index()
     {
-        $answer = getAnswer();
+        $answer = AnswerManager::getInstance();
+        $message = $answer->getAnswer();
         render('index', [
             'answer' => $answer,
         ]);
@@ -37,8 +38,9 @@ class Controllers
         ];
         if(!empty($data['question'])) {
             $magicBall = MagicBallManager::getInstance();
-            $answer = $magicBall->getAnswer($data['question']);
-            setAnswer($answer);
+            $message = $magicBall->getAnswer($data['question']);
+            $answer = AnswerManager::getInstance();
+            $answer->setAnswer($message);
         }
         redirect('/index.php');
     }
