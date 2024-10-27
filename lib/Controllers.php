@@ -19,9 +19,10 @@ class Controllers
     }
     public function index()
     {
-        $answer = AnswerManager::getInstance();
-        $message = $answer->getAnswer();
-        render('index', [
+        $answerManager = AnswerManager::getInstance();
+        $answer = $answerManager->getAnswer();
+        $responses = ResponsesManager::getInstance();
+        $responses -> render('index', [
             'answer' => $answer,
         ]);
     }
@@ -38,11 +39,12 @@ class Controllers
         ];
         if(!empty($data['question'])) {
             $magicBall = MagicBallManager::getInstance();
-            $message = $magicBall->getAnswer($data['question']);
-            $answer = AnswerManager::getInstance();
-            $answer->setAnswer($message);
+            $answer = $magicBall->getAnswer($data['question']);
+            $answerManager = AnswerManager::getInstance();
+            $answerManager->setAnswer($answer);
         }
-        redirect('/index.php');
+        $responses = ResponsesManager::getInstance();
+        $responses -> redirect('/index.php');
     }
 
 }
