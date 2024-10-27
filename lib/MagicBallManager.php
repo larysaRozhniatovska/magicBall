@@ -29,6 +29,12 @@ class MagicBallManager
         }
         return self::$instance;
     }
+
+    /**
+     * returns the answer to the question asked
+     * @param string $question
+     * @return string
+     */
     public function getAnswer( string $question ): string
     {
         return self::ANSWERS[rand(0, count(self::ANSWERS) - 1)];
