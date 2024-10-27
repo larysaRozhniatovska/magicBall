@@ -1,4 +1,5 @@
 <?php
 include_once 'app' . DIRECTORY_SEPARATOR  . 'bootstrap.php';
 
-index();
+$controllers = Controllers::getInstance();
+$controllers->index();

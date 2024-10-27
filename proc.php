@@ -2,4 +2,5 @@
 
 include_once 'app' . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
-proc();
+$controllers = Controllers::getInstance();
+$controllers->proc();
