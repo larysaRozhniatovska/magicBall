@@ -19,8 +19,7 @@ function proc()
         'question' => htmlspecialchars(filter_input(INPUT_POST,'question')),
      ];
     if(!empty($data['question'])) {
-        $magicBall = new MagicBallManager();
-
+        $magicBall = MagicBallManager::getInstance();
         $answer = $magicBall->getAnswer($data['question']);
         setAnswer($answer);
     }
