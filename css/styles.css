@@ -1,0 +1,72 @@
+body{
+    text-align: center;
+    font-family: "Berkshire Swash", cursive;
+    font-size: xx-large;
+    color: #282870;
+    opacity: 0.8;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/images/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 256px;
+    width: 256px;
+}
+
+.img-hover {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+input[type="text"] {
+    font-family: "Berkshire Swash", cursive;
+    font-size: x-large;
+    background-color: #dfe3eb;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+button {
+    font-family: "Berkshire Swash", cursive;
+    font-size: x-large;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 24px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+button :hover {
+    opacity: 1;
+}
+
+
+.response {
+    font-family: "Cinzel Decorative", cursive;
+}
